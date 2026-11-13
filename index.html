@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neon Clock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="page">
+  <h1>Neon Clock</h1>
+
+  <div class="stage" id="stage">
+    <div class="clock" id="clock" title="Click for a burst">
+      <div class="spin"></div>
+      <div class="face">
+        <svg viewBox="0 0 400 400" aria-label="Analog clock">
+          <circle class="pulse" cx="200" cy="200" r="178" fill="none" stroke="var(--a)" stroke-opacity=".25" stroke-width="2"/>
+          <circle cx="200" cy="200" r="120" fill="none" stroke="var(--line)" stroke-dasharray="3 9"/>
+          <g class="orbit"><circle cx="200" cy="82" r="5" fill="var(--b)"/><circle cx="200" cy="318" r="3" fill="var(--a)"/></g>
+          <g id="ticks"></g><g id="nums"></g>
+          <g id="hH"><line class="hand hh" x1="200" y1="215" x2="200" y2="125"/></g>
+          <g id="hM"><line class="hand mh" x1="200" y1="220" x2="200" y2="85"/></g>
+          <g id="hS"><line class="hand sh" x1="200" y1="235" x2="200" y2="62"/><circle cx="200" cy="62" r="6" fill="var(--b)"/></g>
+          <circle cx="200" cy="200" r="11" fill="var(--face)" stroke="var(--a)" stroke-width="4"/>
+          <circle cx="200" cy="200" r="3.5" fill="var(--b)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="digital">
+    <div class="time">
+      <span class="u" id="dH">12</span><span class="colon">:</span><span class="u" id="dM">00</span><span class="colon">:</span><span class="u" id="dS">00</span><span class="ap" id="dA">AM</span>
+    </div>
+    <div class="date" id="date"></div>
+    <div class="day">
+      <div class="bar"><i id="bar"></i></div>
+      <small id="pct">Day progress</small>
+    </div>
+  </div>
+
+  <div class="ctrl">
+    <span class="sw" data-c="cyan" style="background:linear-gradient(135deg,#22d3ee,#e879f9)" title="Cyan"></span>
+    <span class="sw" data-c="sunset" style="background:linear-gradient(135deg,#fb923c,#f43f5e)" title="Sunset"></span>
+    <span class="sw" data-c="lime" style="background:linear-gradient(135deg,#a3e635,#22d3ee)" title="Lime"></span>
+    <span class="sw" data-c="violet" style="background:linear-gradient(135deg,#a78bfa,#f472b6)" title="Violet"></span>
+    <button class="t" id="fmt">12h / 24h</button>
+    <button class="t" id="mode">🌙 / ☀️</button>
+  </div>
+  <div class="hint">Move your mouse over the clock to tilt it · click it for a burst</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
